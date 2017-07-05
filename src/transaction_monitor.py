@@ -206,12 +206,8 @@ for line in f_api:
             test_amt = float(ld['amount'])
             net_mean, net_sd = network_mean_sd(test_user, D, T, N)
             if test_amt > net_mean + n_sd * net_sd:
-                #                print(ld)
-                #                print(net_mean, net_sd)
-                #                print('hi')
                 ld.update({'mean': '%.2f' % net_mean})
                 ld.update({'sd': '%.2f' % net_sd})
-                # print(ld)
                 # preserve the desired formatting to pass test suite
                 f_out.write(line[:-1] + ', ' + '\"mean\": \"' + '%.2f' %
                             net_mean + '\", \"sd\": \"' + '%.2f' % net_sd + '\"}\n')
